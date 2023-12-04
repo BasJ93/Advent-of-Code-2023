@@ -2,17 +2,30 @@ package Solvers
 
 import (
 	"fmt"
-	"reflect"
 )
 
 func CreateSolver(day int) ISolver {
-	var solver ISolver
+	switch day {
+	case 1:
+		return Day1{}
+	case 2:
+		return Day2{}
+	case 3:
+		return Day3{}
+	case 4:
+		return Day4{}
+	default:
+		fmt.Println("Unknown solver type")
+		return nil
+	}
+
+	/*var solver ISolver
 
 	solverName := fmt.Sprintf("Day%d", day)
 
-	typename := reflect.TypeOf(solverName)
+	/*typename := reflect.TypeOf(solverName)
 
-	if typename.Kind() != reflect.String {
+	if typename.Kind() != reflect.Struct {
 		fmt.Println("Invalid day selected")
 		return nil
 	}
@@ -24,7 +37,7 @@ func CreateSolver(day int) ISolver {
 		"Day4": reflect.TypeOf(Day4{}),
 		/*"Day5": reflect.TypeOf(Day5{}),
 		"Day6": reflect.TypeOf(Day6{}),
-		"Day7": reflect.TypeOf(Day7{}),*/
+		"Day7": reflect.TypeOf(Day7{}),
 	}
 
 	if st, ok := days[solverName]; ok {
@@ -36,5 +49,5 @@ func CreateSolver(day int) ISolver {
 		return nil
 	}
 
-	return solver
+	return solver*/
 }
